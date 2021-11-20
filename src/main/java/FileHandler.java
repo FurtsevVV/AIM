@@ -35,7 +35,7 @@ public class FileHandler implements Runnable {
         return true;
     }
 
-    public static void scanFile(File file) {
+    public static synchronized void scanFile(File file) {
         try {
             Scanner scanner = new Scanner(file);
             String str = scanner.nextLine();
@@ -43,7 +43,7 @@ public class FileHandler implements Runnable {
             for (int i = 0; i < arrayWithNameOfFiles.length; i++) {
                 Scanner scanner1 = new Scanner(file);
                 scanner1.nextLine();
-                String filepath = "C:/Users/Zakat/IdeaProjects/AIMTask/src/resources/" + arrayWithNameOfFiles[i] + ".txt";
+                String filepath = "C:/Users/Zakat/IdeaProjects/AIMTask/src/main/resources/" + arrayWithNameOfFiles[i] + ".txt";
                 String filename = arrayWithNameOfFiles[i] + ".txt";
                 File chekedFile = new File(filepath);
                 if (chekedFile.createNewFile())
