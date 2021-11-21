@@ -43,15 +43,19 @@ public class FileHandler implements Runnable {
             for (int i = 0; i < arrayWithNameOfFiles.length; i++) {
                 Scanner scanner1 = new Scanner(file);
                 scanner1.nextLine();
+
                 String filepath = "C:/Users/Zakat/IdeaProjects/AIMTask/src/main/resources/" + arrayWithNameOfFiles[i] + ".txt";
                 String filename = arrayWithNameOfFiles[i] + ".txt";
                 File chekedFile = new File(filepath);
+
                 if (chekedFile.createNewFile())
                     System.out.println(filename + " is created");
                 FileWriter writer = new FileWriter(filepath, true);
+
                 while (scanner1.hasNextLine()) {
                     String[] arrayWithValues = scanner1.nextLine().split(";");
                     String writedValue = arrayWithValues[i];
+
                     if (isNewValue(chekedFile, writedValue)) {
                         writer.write(writedValue + ";");
                         writer.flush();
@@ -66,4 +70,6 @@ public class FileHandler implements Runnable {
             e.printStackTrace();
         }
     }
+
+
 }
